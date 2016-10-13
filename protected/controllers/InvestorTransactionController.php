@@ -64,6 +64,10 @@ class InvestorTransactionController extends Controller
 	{
 		$model=new InvestorTransaction;
 
+	
+		if(isset($_GET['booking_id'])){
+			$model->booking_id = $_GET['booking_id'];
+		}
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
