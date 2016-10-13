@@ -55,7 +55,7 @@ $static = array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'transaction_type'); ?>
-		<?php echo $form->dropDownList($model,'transaction_type',$static); ?>
+		<?php echo $form->dropDownList($model,'transaction_type',$static); ?>   
 		<?php echo $form->error($model,'transaction_type'); ?>
 	</div>
 
