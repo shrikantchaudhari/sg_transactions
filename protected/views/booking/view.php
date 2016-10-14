@@ -13,6 +13,7 @@ $this->menu=array(
 	array('label'=>'Update Booking', 'url'=>array('update', 'id'=>$model->booking_id)),
 	array('label'=>'Delete Booking', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->booking_id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Booking', 'url'=>array('admin')),
+	array('label'=>'Add Investor Transaction', 'url'=>array('investorTransaction/create', 'booking_id'=>$model->booking_id)),
 );
 ?>
 

@@ -63,6 +63,7 @@ class CustomerMasterController extends Controller
 	public function actionCreate()
 	{
 		$model=new CustomerMaster;
+		$bookingModel=new Booking;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -70,12 +71,15 @@ class CustomerMasterController extends Controller
 		if(isset($_POST['CustomerMaster']))
 		{
 			$model->attributes=$_POST['CustomerMaster'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->customer_id));
+			if($model->save()){
+					$this->redirect(array('booking/create','customer_id'=>$model->customer_id));
+				// $this->redirect(array('view','id'=>$model->customer_id));
+			}
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+			'bookingModel'=>$bookingModel
 		));
 	}
 
@@ -95,7 +99,10 @@ class CustomerMasterController extends Controller
 		{
 			$model->attributes=$_POST['CustomerMaster'];
 			if($model->save())
+			{
+
 				$this->redirect(array('view','id'=>$model->customer_id));
+			}
 		}
 
 		$this->render('update',array(

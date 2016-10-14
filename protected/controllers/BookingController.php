@@ -64,8 +64,13 @@ class BookingController extends Controller
 	{
 		$model=new Booking;
 
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
+
+		if(isset($_GET['customer_id'])){
+			$model->customer_id = $_GET['customer_id'];
+		}
 
 		if(isset($_POST['Booking']))
 		{

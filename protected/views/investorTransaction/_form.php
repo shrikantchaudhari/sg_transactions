@@ -43,7 +43,7 @@ $static = array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'booking_id'); ?>
-		<?php echo $form->dropDownList($model, 'booking_id',$bookingList, array('prompt'=>'Select Booking id')); ?>
+		<?php echo $form->dropDownList($model, 'booking_id',$bookingList, array('prompt'=>'Select Booking id',"readonly"=>true)); ?>
 		<?php echo $form->error($model,'booking_id'); ?>
 	</div>
 
@@ -55,11 +55,7 @@ $static = array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'transaction_type'); ?>
-		<?php echo $form->dropDownList(
-    $model,
-    'transaction_type',
-    $static ,
-    array('empty'=>Yii::t('fim','Select Type'))); ?>
+		<?php echo $form->dropDownList($model,'transaction_type',$static); ?>   
 		<?php echo $form->error($model,'transaction_type'); ?>
 	</div>
 
