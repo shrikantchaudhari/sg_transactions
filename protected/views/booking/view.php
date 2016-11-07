@@ -34,5 +34,7 @@ $this->menu=array(
 		'no_of_lock',
 		'notes',
 		'created_on',
+		'expense',
+		'expense_description',
 	),
 )); ?>

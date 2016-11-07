@@ -74,6 +74,7 @@ class BookingController extends Controller
 
 		if(isset($_POST['Booking']))
 		{
+
 			$model->attributes=$_POST['Booking'];
 			
 			if (array_key_exists('cycle_id', $_POST['Booking'])) {
@@ -90,6 +91,13 @@ class BookingController extends Controller
 
 				}
 				$model->cycle_id = $cycleIds;
+			}
+
+			if (array_key_exists('notes', $_POST['Booking'])) {
+				$model->notes = $_POST['Booking']['notes'];
+			}
+			if (array_key_exists('expense_description', $_POST['Booking'])) {
+				$model->expense_description = $_POST['Booking']['expense_description'];
 			}
 			
 			$model->created_on =  date("Y-m-d H:i:s");	
@@ -116,7 +124,15 @@ class BookingController extends Controller
 
 		if(isset($_POST['Booking']))
 		{
+			
 			$model->attributes=$_POST['Booking'];
+
+			if (array_key_exists('notes', $_POST['Booking'])) {
+				$model->notes = $_POST['Booking']['notes'];
+			}
+			if (array_key_exists('expense_description', $_POST['Booking'])) {
+				$model->expense_description = $_POST['Booking']['expense_description'];
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->booking_id));
 		}

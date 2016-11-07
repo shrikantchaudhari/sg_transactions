@@ -33,6 +33,12 @@
 	<?php echo CHtml::encode($data->delivery_charges); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('expense')); ?>:</b>
+	<?php echo CHtml::encode($data->expense); ?>
+	<br />
+	<b><?php echo CHtml::encode($data->getAttributeLabel('expense_description')); ?>:</b>
+	<?php echo CHtml::encode($data->expense_description); ?>
+	<br />
 	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('deposite')); ?>:</b>
 	<?php echo CHtml::encode($data->deposite); ?>

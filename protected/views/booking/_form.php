@@ -130,6 +130,18 @@ $customerList = CHtml::listData($customerNames, 'customer_id', 'name');
 		<?php echo $form->textArea($model,'notes',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'notes'); ?>
 	</div>
+	
+	<div class="row">
+		<?php echo $form->labelEx($model,'expense'); ?>
+		<?php echo $form->textField($model,'expense'); ?>
+		<?php echo $form->error($model,'expense'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'expense_description'); ?>
+		<?php echo $form->textArea($model,'expense_description',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'expense_description'); ?>
+	</div>
 
 
 	<?php $model->created_on = date('Y-m-d G:i:s');?>

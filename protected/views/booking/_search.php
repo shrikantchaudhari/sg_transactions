@@ -65,7 +65,15 @@
 		<?php echo $form->label($model,'notes'); ?>
 		<?php echo $form->textArea($model,'notes',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
+	<div class="row">
+		<?php echo $form->label($model,'expense'); ?>
+		<?php echo $form->textField($model,'expense'); ?>
+	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'expense_description'); ?>
+		<?php echo $form->textArea($model,'expense_description',array('rows'=>6, 'cols'=>50)); ?>
+	</div>
 	<div class="row">
 		<?php echo $form->label($model,'created_on'); ?>
 		<?php echo $form->textField($model,'created_on'); ?>

@@ -40,11 +40,11 @@ class Booking extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('customer_id, booking_from, booking_to, booking_amount, delivery_charges, deposite, no_of_helmates, no_of_lock', 'required'),
-			array('no_of_cycles,customer_id, booking_amount, delivery_charges, deposite, no_of_helmates, no_of_lock', 'numerical', 'integerOnly'=>true),
+			array('no_of_cycles,customer_id, booking_amount, delivery_charges, deposite, no_of_helmates, no_of_lock,expense', 'numerical', 'integerOnly'=>true),
 			array('created_on', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('no_of_cycles,booking_id, cycle_id, customer_id, booking_from, booking_to, booking_amount, delivery_charges, deposite, no_of_helmates, no_of_lock, notes, created_on', 'safe', 'on'=>'search'),
+			array('no_of_cycles,booking_id, cycle_id, customer_id, booking_from, booking_to, booking_amount, delivery_charges, deposite, no_of_helmates, no_of_lock, notes, created_on, expense, expense_description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -80,6 +80,8 @@ class Booking extends CActiveRecord
 			'no_of_lock' => 'No Of Lock',
 			'notes' => 'Notes',
 			'created_on' => 'Created On',
+			'expense' => 'Expense', 
+			'expense_description' => 'Expense Description',
 		);
 	}
 
@@ -114,6 +116,8 @@ class Booking extends CActiveRecord
 		$criteria->compare('no_of_lock',$this->no_of_lock);
 		$criteria->compare('notes',$this->notes,true);
 		$criteria->compare('created_on',$this->created_on,true);
+		$criteria->compare('expense',$this->expense);
+		$criteria->compare('expense_description',$this->expense_description,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
