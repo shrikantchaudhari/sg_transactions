@@ -182,6 +182,31 @@ class BookingController extends Controller
 		));
 	}
 
+	public function getCycleNames( $data, $row ) {
+		
+		if( $data->cycle_id != null ) {	
+			$cycle_ids = explode( ",", $data->cycle_id );
+			$cycle_names = array();
+
+			if( is_array( $cycle_ids ) ) {
+				foreach ( $cycle_ids as $key => $cycle_id ) {
+					
+					$cyclecriteria = new CDbCriteria();
+					$cyclecriteria->select = "nick_name";
+					$cyclecriteria->condition = "cycle_id=$cycle_id";
+					$cycle = CycleMaster::model()->find($cyclecriteria);
+
+					$cycle_names[] = $cycle->nick_name;
+				}
+			}
+
+			return implode( ", ", $cycle_names );
+		} 
+
+		return '';
+		
+	}
+
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

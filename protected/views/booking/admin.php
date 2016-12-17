@@ -45,14 +45,23 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'booking_id',
-		'cycle_id',
-		'customer_id',
+		array(
+            'name' => 'cycle_id',
+            'value' => array( $this,'getCycleNames' )
+        ),
+		// 'booking_id',
+		// 'cycle_id',
+		// 'customer_id',
+		array(
+          'name' => 'customer',
+          'value' => 'CHtml::encode($data->customer->name)'
+        ),
 		'booking_from',
 		'booking_to',
 		'booking_amount',
-		'expense',
-		'expense_description',
+		// 'expense',
+		// 'expense_description',
+		
 		/*
 		'delivery_charges',
 		'deposite',
