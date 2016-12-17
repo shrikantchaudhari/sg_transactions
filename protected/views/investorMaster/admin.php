@@ -49,8 +49,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'name',
 		'mobile_no',
 		'email',
-		'cycle_id',
+		// 'cycle_id',
 		'purchase_date',
+		array(
+          'name' => 'cycle',
+          'value' => 'CHtml::encode($data->cycle->nick_name)'
+        ),
 		array(
 			'class'=>'CButtonColumn',
 		),

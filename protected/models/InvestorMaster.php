@@ -99,6 +99,9 @@ class InvestorMaster extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort' => array(
+		        'defaultOrder' => 'investor_id DESC',
+		    ),
 		));
 	}
 
