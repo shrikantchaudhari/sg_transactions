@@ -101,7 +101,8 @@ class Booking extends CActiveRecord
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
 
-		$criteria=new CDbCriteria;
+		$criteria = new CDbCriteria;
+		$sort     = new CSort;
 
 		$criteria->compare('no_of_cycles', $this->no_of_cycles);
 		$criteria->compare('booking_id',$this->booking_id);
@@ -121,6 +122,9 @@ class Booking extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort' => array(
+		        'defaultOrder' => 'booking_from DESC',
+		    ),
 		));
 	}
 
