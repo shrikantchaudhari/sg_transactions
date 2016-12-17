@@ -45,12 +45,12 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'investor_id',
+		// 'investor_id',
 		'name',
 		'mobile_no',
 		'email',
 		// 'cycle_id',
-		'purchase_date',
+		// 'purchase_date',
 		array(
           'name' => 'cycle',
           'value' => 'CHtml::encode($data->cycle->nick_name)'
